@@ -1,5 +1,5 @@
 try:
-    import JarvisAI
+    import AIAssistant
     import re
     import pprint
     import random
@@ -7,7 +7,7 @@ try:
 except Exception as e:
     print("some module are missing{}".format(e))
 
-obj = JarvisAI.JarvisAssistant()
+obj = AIAssistant.AIAssistant()
 
 config_path = 'config/config.ini'
 configur = ConfigParser()
@@ -103,7 +103,7 @@ while True:
             print(time)
             t2s(time)
             break
-#
+
         if re.search('open', res):
             domain = res.split(' ')[-1]
             open_result = obj.website_opener(domain)
@@ -122,11 +122,6 @@ while True:
             t2s(f"I am {response}")
             break
 
-        if re.search('your name|who are you', res):
-            print("My name is Jarvis, I am your personal assistant")
-            t2s("My name is Jarvis, I am your personal assistant")
-            break
-
         if re.search('what can you do', res):
             li_commands = {
                 "open websites": "Example: 'open youtube.com",
@@ -143,32 +138,3 @@ while True:
             pprint.pprint(li_commands)
             t2s(ans)
             break
-#
-# # if not os.path.exists(self.model_path):
-# #     os.makedirs(self.model_path)
-
-# if __name__ == '__main__':
-#     obj = JarvisAI.JarvisAssistant()
-#     data_path = 'Data/faces/user/'
-#     model_path = 'Data/model/'
-#     face_classifier = 'Data/Haarcascades/haarcascade_frontalface_default.xml'
-#     dict_app = {
-#                         'chrome': 'C:\Program Files\Google\Chrome\Application\chrome.exe',
-#
-#                         'epic games': 'C:\Program Files\JetBrains\PyCharm Community Edition 2020.3.3\bin\pycharm64.exe'
-#                     }
-#
-#     # app = res.split(' ', 1)[1]
-#     app = 'chrome'
-#     path = dict_app.get(app)
-#     if path is None:
-#         # t2s('Application path not found')
-#         print('Application path not found')
-#     else:
-#         # t2s('Launching: ' + app)
-#         obj.launchApp(face_classifier, model_path, path)
-#     # obj = Train(data_path, model_path)
-#     # obj.train()
-#     # obj.train_model(data_path, model_path)
-#     # obj.dataset_create(face_classifier, data_path)
-#     # obj.launchApp(face_classifier, model_path, '--')
