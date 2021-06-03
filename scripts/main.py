@@ -46,8 +46,6 @@ while True:
         if re.search("launch", res):
             dict_app = {
                 'chrome': 'C:\Program Files\Google\Chrome\Application\chrome.exe',
-
-                'epic games': 'C:\Program Files\JetBrains\PyCharm Community Edition 2020.3.3\bin\pycharm64.exe'
             }
 
             app = res.split(' ', 1)[1]
